@@ -1,13 +1,14 @@
 package com.divofmod.service;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        startService(new Intent(this, CheckWeather.class).putExtra("String","ssss"));
-        Log.d("LOG", "Activity onCreate");
+
+
+        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        PendingIntent pendingIntent = PendingIntent.getService(this, 0,
+                new Intent(this, CheckWeather.class), 0);
+
+        alarm.cancel(pendingIntent);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 60000,
+                pendingIntent);
+
     }
 
 }

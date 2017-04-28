@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">@color/brand_color</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="brand_color">#4CAF50</color>
+    <color name="brand_color">#37803a</color>
     <color name="text_color">#fff</color>
 </resources>

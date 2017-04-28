@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GrowerLand</string>
+    <string name="empty_page_text">You do not have any kitchen garden\nClick \'+\' to add your first garden</string>
 </resources>

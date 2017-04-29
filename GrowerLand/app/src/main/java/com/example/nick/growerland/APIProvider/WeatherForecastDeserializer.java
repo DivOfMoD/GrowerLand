@@ -9,7 +9,6 @@ import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 class WeatherForecastDeserializer extends ValidationChecker implements JsonDeserializer<WeatherForecastResponse> {
@@ -22,16 +21,18 @@ class WeatherForecastDeserializer extends ValidationChecker implements JsonDeser
         JsonObject rootObject = jsonElement.getAsJsonObject();
         JsonArray jWeatherList = rootObject.getAsJsonArray("list");
 
-
-        ArrayList<Weather> weatherArray = new ArrayList<>();
-        for (JsonElement listItem :
-                jWeatherList) {
-            weatherArray.add(context.deserialize(listItem, Weather.class));
-        }
-
         response.setCod(checkNumValidation(rootObject, "cod").getAsInt());
         response.setMessage(checkNumValidation(rootObject, "message").getAsDouble());
         response.setCnt(checkNumValidation(rootObject, "cnt").getAsInt());
+
+        ArrayList<Weather> weatherArray = new ArrayList<>();
+        if (response.getCod() == 200) {
+            for (JsonElement listItem :
+                    jWeatherList) {
+                weatherArray.add(context.deserialize(listItem, Weather.class));
+            }
+        }
+
         response.setWeather(weatherArray);
 
         return response;

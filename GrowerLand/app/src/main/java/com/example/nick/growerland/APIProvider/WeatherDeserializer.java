@@ -20,7 +20,7 @@ class WeatherDeserializer extends ValidationChecker implements JsonDeserializer<
 
         Weather weather = new Weather();
 
-        weather.setDate(new Date(jWeatherObject.get("dt").getAsLong()));
+        weather.setDate(new Date(jWeatherObject.get("dt").getAsLong() *1000));
 
         weather.setTemperature(checkNumValidation(jMain, "temp").getAsDouble());
         weather.setMinTemperature(checkNumValidation(jMain, "temp_min").getAsDouble());

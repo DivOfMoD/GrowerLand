@@ -22,7 +22,6 @@ class WeatherForecastDeserializer extends ValidationChecker implements JsonDeser
         JsonObject rootObject = jsonElement.getAsJsonObject();
         JsonArray jWeatherList = rootObject.getAsJsonArray("list");
 
-
         ArrayList<Weather> weatherArray = new ArrayList<>();
         for (JsonElement listItem :
                 jWeatherList) {

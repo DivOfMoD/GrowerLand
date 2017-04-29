@@ -7,6 +7,10 @@ import android.util.Log;
 import com.example.nick.growerland.APIProvider.Provider;
 import com.example.nick.growerland.APIProvider.WeatherForecastResponse;
 import com.example.nick.growerland.R;
+import com.example.nick.growerland.weatherformatter.WeatherFormatter;
+import com.example.nick.growerland.weatherformatter.day.TwentyFourHours;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         double lat = 53.663735, lot = 23.825932; //Grondo location
-        WeatherForecastResponse fiveDayForecast = new Provider().getFiveDayForecast(lat, lot);
-        Log.d("TAG", fiveDayForecast.getWeather().get(0).getDate().toString());
+//        WeatherForecastResponse fiveDayForecast = new Provider().getFiveDayForecast(lat, lot);
+//        Log.d("TAG", fiveDayForecast.getWeather().get(0).getDate().toString());
+
+        WeatherFormatter weatherFormatter = new WeatherFormatter(lat, lot);
+        ArrayList<TwentyFourHours> twentyFourHourses = weatherFormatter.getTwentyFourHoursList();
     }
 
 }

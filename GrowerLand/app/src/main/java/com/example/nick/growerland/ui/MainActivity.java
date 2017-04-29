@@ -11,9 +11,9 @@ import com.example.nick.growerland.R;
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash);
 
         double lat = 53.663735, lot = 23.825932; //Grondo location
         WeatherForecastResponse fiveDayForecast = new Provider().getFiveDayForecast(lat, lot);

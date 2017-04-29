@@ -11,7 +11,12 @@ import java.util.ArrayList;
 public class DayTime{
 
     private double mAvarageTemperature;
+    private double mAvarageHumidity;
     private ArrayList<Weather> mWeatherList;
+
+    public DayTime(){
+        mWeatherList = new ArrayList<>();
+    }
 
     public double getAvarageTemperature() {
         return mAvarageTemperature;
@@ -21,11 +26,15 @@ public class DayTime{
         this.mAvarageTemperature = mAvarageTemperature;
     }
 
-    public ArrayList<Weather> getWeatherList() {
-        return mWeatherList;
+    public double getAvarageHumidity() {
+        return mAvarageHumidity;
     }
 
-    public void setWeatherList(ArrayList<Weather> mWeatherList) {
-        this.mWeatherList = mWeatherList;
+    public void setAvarageHumidity(double mAvarageHumidity) {
+        this.mAvarageHumidity = mAvarageHumidity;
+    }
+
+    public ArrayList<Weather> getWeatherList() {
+        return mWeatherList;
     }
 }

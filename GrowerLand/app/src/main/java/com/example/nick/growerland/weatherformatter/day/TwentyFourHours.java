@@ -14,10 +14,10 @@ public class TwentyFourHours {
     private NightTime mNightTime;
     private double mAvarageHumidity;
     private double mAvarageTemperature;
-    private ArrayList<Weather> mWeatherList;
 
     public TwentyFourHours(){
-        mWeatherList = new ArrayList<>();
+        mDayTime = new DayTime();
+        mNightTime = new NightTime();
     }
 
     public DayTime getDayTime() {
@@ -36,11 +36,11 @@ public class TwentyFourHours {
         this.mNightTime = mNightTime;
     }
 
-    public double getHumidity() {
+    public double getAvarageHumidity() {
         return mAvarageHumidity;
     }
 
-    public void setHumidity(double mHumidity) {
+    public void setAvarageHumidity(double mHumidity) {
         this.mAvarageHumidity = mHumidity;
     }
 
@@ -51,14 +51,4 @@ public class TwentyFourHours {
     public void setAvarageTemperature(double mAvarageTemperature) {
         this.mAvarageTemperature = mAvarageTemperature;
     }
-
-    public ArrayList<Weather> getWeatherList() {
-        return mWeatherList;
-    }
-
-    public void setWeatherList(ArrayList<Weather> mWeatherList) {
-        this.mWeatherList = mWeatherList;
-    }
-
-
 }

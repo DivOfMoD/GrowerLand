@@ -21,16 +21,25 @@ public class WeatherFormatter {
     private ArrayList<Weather> mWeatherList;
     private ArrayList<TwentyFourHours> mTwentyFourHoursList;
 
+    public WeatherFormatter(){
+        provider = new Provider();
+        mTwentyFourHoursList = new ArrayList<>();
+    }
+
     public WeatherFormatter(double lat, double lot){
         provider = new Provider();
         mTwentyFourHoursList = new ArrayList<>();
-        weatherForecastResponse = provider.getFiveDayForecast(lat, lot);
-        mWeatherList = weatherForecastResponse.getWeather();
-
-        DivideIntoTwentyFourHours();
+        form(lat, lot);
     }
 
-    private void DivideIntoTwentyFourHours(){
+    public void form(double lat, double lot){
+        weatherForecastResponse = provider.getFiveDayForecast(lat, lot);
+        mWeatherList = weatherForecastResponse.getWeather();
+        divideIntoTwentyFourHours();
+        WeatherCalculation weatherCalculation = new WeatherCalculation(mTwentyFourHoursList);
+    }
+
+    private void divideIntoTwentyFourHours(){
         Calendar previousDate = Calendar.getInstance();
         previousDate.setTime(mWeatherList.get(0).getDate());
         TwentyFourHours twentyFourHours = new TwentyFourHours();
@@ -39,23 +48,20 @@ public class WeatherFormatter {
             Calendar currentDate = Calendar.getInstance();
             currentDate.setTime(weather.getDate());
             if(previousDate.get(Calendar.DAY_OF_MONTH) == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                twentyFourHours.getWeatherList().add(weather);
-                DivideIntoDayNightTimes(currentDate, weather, twentyFourHours);
+                divideIntoDayNightTimes(currentDate, weather, twentyFourHours);
             }
             else{
                 previousDate = currentDate;
                 mTwentyFourHoursList.add(twentyFourHours);
                 twentyFourHours = new TwentyFourHours();
-                twentyFourHours.getWeatherList().add(weather);
-                DivideIntoDayNightTimes(currentDate, weather, twentyFourHours);
-
+                divideIntoDayNightTimes(currentDate, weather, twentyFourHours);
             }
         }
         mTwentyFourHoursList.add(twentyFourHours);
     }
 
-    private void DivideIntoDayNightTimes(Calendar currentDate, Weather weather, TwentyFourHours twentyFourHours){
-        if(currentDate.get(Calendar.HOUR_OF_DAY) >= 9 && currentDate.get(Calendar.HOUR_OF_DAY) <= 21){
+    private void divideIntoDayNightTimes(Calendar currentDate, Weather weather, TwentyFourHours twentyFourHours){
+        if(currentDate.get(Calendar.HOUR_OF_DAY) >= 6 && currentDate.get(Calendar.HOUR_OF_DAY) < 21){
             twentyFourHours.getDayTime().getWeatherList().add(weather);
         }
         else {

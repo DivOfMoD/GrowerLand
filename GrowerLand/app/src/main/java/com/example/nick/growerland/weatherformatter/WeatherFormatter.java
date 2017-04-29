@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by kiril on 29.04.2017.
- */
-
 public class WeatherFormatter {
 
     private Provider provider;
@@ -61,7 +57,7 @@ public class WeatherFormatter {
     }
 
     private void divideIntoDayNightTimes(Calendar currentDate, Weather weather, TwentyFourHours twentyFourHours){
-        if(currentDate.get(Calendar.HOUR_OF_DAY) >= 6 && currentDate.get(Calendar.HOUR_OF_DAY) < 21){
+        if(currentDate.get(Calendar.HOUR_OF_DAY) >= 9 && currentDate.get(Calendar.HOUR_OF_DAY) < 24){
             twentyFourHours.getDayTime().getWeatherList().add(weather);
         }
         else {

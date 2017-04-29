@@ -20,48 +20,57 @@ public class WeatherCalculation {
     private void calculate(ArrayList<TwentyFourHours> twentyFourHoursList){
         for (TwentyFourHours twentyFourHours : twentyFourHoursList){
 
-            calculateAvarageTemperatureAndHumidityForDayTime(twentyFourHours.getDayTime());
-            calculateAvarageTemperatureAndHumidityForNightTime(twentyFourHours.getNightTime());
-            calculateAvarageTemperatureAndHumidityForTwentyFourHours(twentyFourHours);
+            calculateWeatherForDayTime(twentyFourHours.getDayTime());
+            calculateWeatherForNightTime(twentyFourHours.getNightTime());
+            calculateWeatherForTwentyFourHours(twentyFourHours);
         }
     }
 
-    private void calculateAvarageTemperatureAndHumidityForDayTime(DayTime dayTime) {
+    private void calculateWeatherForDayTime(DayTime dayTime) {
         double avarageTemperature = 0;
         double avarageHumidity = 0;
+        double rainVolume = 0;
 
-        for (Weather wheather : dayTime.getWeatherList()) {
-            avarageHumidity += wheather.getHumidity();
-            avarageTemperature += (wheather.getTemperature() - 273);
+        for (Weather weather : dayTime.getWeatherList()) {
+            avarageHumidity += weather.getHumidity();
+            avarageTemperature += (weather.getTemperature() - 273);
+            rainVolume += weather.getRainVolume();
         }
 
         dayTime.setAvarageTemperature(
                 avarageTemperature / dayTime.getWeatherList().size());
         dayTime.setAvarageHumidity(
                 avarageHumidity / dayTime.getWeatherList().size());
+        dayTime.setRainVolume(rainVolume);
     }
 
-    private void calculateAvarageTemperatureAndHumidityForNightTime(NightTime nightTime) {
+    private void calculateWeatherForNightTime(NightTime nightTime) {
         double avarageTemperature = 0;
         double avarageHumidity = 0;
+        double rainVolume = 0;
 
-        for (Weather wheather : nightTime.getWeatherList()) {
-            avarageHumidity += wheather.getHumidity();
-            avarageTemperature += (wheather.getTemperature() - 273);
+        for (Weather weather : nightTime.getWeatherList()) {
+            avarageHumidity += weather.getHumidity();
+            avarageTemperature += (weather.getTemperature() - 273);
+            rainVolume += weather.getRainVolume();
         }
 
         nightTime.setAvarageTemperature(
                 avarageTemperature / nightTime.getWeatherList().size());
         nightTime.setAvarageHumidity(
                 avarageHumidity / nightTime.getWeatherList().size());
+        nightTime.setRainVolume(rainVolume);
     }
 
-    private void calculateAvarageTemperatureAndHumidityForTwentyFourHours(TwentyFourHours twentyFourHours){
+    private void calculateWeatherForTwentyFourHours(TwentyFourHours twentyFourHours){
         twentyFourHours.setAvarageTemperature(
                 (twentyFourHours.getDayTime().getAvarageTemperature() +
                         twentyFourHours.getNightTime().getAvarageTemperature()) / 2);
         twentyFourHours.setAvarageHumidity(
                 (twentyFourHours.getDayTime().getAvarageHumidity() +
                         twentyFourHours.getNightTime().getAvarageHumidity()) / 2);
+        twentyFourHours.setRainVolume(
+                twentyFourHours.getDayTime().getRainVolume() +
+                        twentyFourHours.getNightTime().getRainVolume());
     }
 }

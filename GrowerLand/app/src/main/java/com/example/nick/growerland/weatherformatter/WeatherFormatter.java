@@ -34,24 +34,33 @@ public class WeatherFormatter {
         Calendar previousDate = Calendar.getInstance();
         previousDate.setTime(mWeatherList.get(0).getDate());
         TwentyFourHours twentyFourHours = new TwentyFourHours();
+
         for (Weather weather : mWeatherList){
             Calendar currentDate = Calendar.getInstance();
             currentDate.setTime(weather.getDate());
             if(previousDate.get(Calendar.DAY_OF_MONTH) == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 twentyFourHours.getWeatherList().add(weather);
+                DivideIntoDayNightTimes(currentDate, weather, twentyFourHours);
             }
             else{
                 previousDate = currentDate;
                 mTwentyFourHoursList.add(twentyFourHours);
                 twentyFourHours = new TwentyFourHours();
                 twentyFourHours.getWeatherList().add(weather);
+                DivideIntoDayNightTimes(currentDate, weather, twentyFourHours);
+
             }
         }
         mTwentyFourHoursList.add(twentyFourHours);
     }
 
-    private void DivideIntoDayNightTimes(){
-
+    private void DivideIntoDayNightTimes(Calendar currentDate, Weather weather, TwentyFourHours twentyFourHours){
+        if(currentDate.get(Calendar.HOUR_OF_DAY) >= 9 && currentDate.get(Calendar.HOUR_OF_DAY) <= 21){
+            twentyFourHours.getDayTime().getWeatherList().add(weather);
+        }
+        else {
+            twentyFourHours.getNightTime().getWeatherList().add(weather);
+        }
     }
 
     public ArrayList<TwentyFourHours> getTwentyFourHoursList() {

@@ -24,4 +24,7 @@ public final class GardenModel {
     @typeString
     public static final String LONGITUDE = "longitude";
 
+    @typeString
+    public static final String VEG = "veg";
+
 }

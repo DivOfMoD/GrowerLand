@@ -1,61 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:paddingTop="16dp">
 
-    <LinearLayout
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp">
 
-        <TextView
-            android:id="@+id/title"
+        <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:hint="Garden name"
+            android:inputType="text"
+            android:textSize="16sp"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="48dp">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="#000"/>
+            android:id="@+id/ld_btn_negative"
+            style="@style/DialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="CANCEL" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_height="48dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/negative_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="CANCEL"
-                android:textColor="#000"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:id="@+id/positive_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="OK"
-                android:textColor="#000"
-                android:textSize="20sp"/>
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/ld_btn_confirm"
+            style="@style/DialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="OK" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

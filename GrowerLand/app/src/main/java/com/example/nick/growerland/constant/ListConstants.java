@@ -9,4 +9,12 @@ public final class ListConstants {
         String mDatabaseName = "database.cards.thecriser";
         int dbVersion = 1;
     }
+
+    public interface Extras {
+        String EXTRA_GARDEN_NAME_CREATE = "extra_garden_name_create";
+    }
+
+    public static final String URL_JSON_SETTINGS = "http://growerlandnasa.appspot.com/";
+    public static final String CONFIG = "config";
+
 }

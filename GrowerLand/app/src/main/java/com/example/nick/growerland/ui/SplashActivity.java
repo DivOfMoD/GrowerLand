@@ -16,16 +16,16 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash);
 
         final boolean passed = PreferenceManager.getInstance().getPassedRegistration(this);
 
         new Handler().postDelayed(() -> {
             final Intent intent;
             if (passed) {
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, MenuActivity.class);
             } else {
-                intent = new Intent(this, RegistrationActivity.class);
+                intent = new Intent(this, MenuActivity.class); // RegistrationActivity.class
             }
             startActivity(intent);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

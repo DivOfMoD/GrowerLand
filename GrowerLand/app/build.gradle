@@ -36,6 +36,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.34'
     compile group: 'commons-io', name: 'commons-io', version: '2.0.1'
     compile 'com.google.code.gson:gson:2.7'
     testCompile 'junit:junit:4.12'

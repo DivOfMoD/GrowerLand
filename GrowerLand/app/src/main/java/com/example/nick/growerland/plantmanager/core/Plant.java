@@ -3,14 +3,14 @@ package com.example.nick.growerland.plantmanager.core;
 public class Plant {
 
     private String mName;
-    private int mMinMaturation;
-    private int mMaxMaturation;
-    private int mMinTemperature;
-    private int mMaxTemperature;
-    private int mFavorTemperature;
-    private int mHumidity;
-    private int mWateringInterval;
-    private int mTopDressingInterval;
+    private Integer mMinMaturation;
+    private Integer mMaxMaturation;
+    private Double mMinTemperature;
+    private Double mMaxTemperature;
+    private Double mFavorTemperature;
+    private Double mHumidity;
+    private Integer mWateringInterval;
+    private Integer mTopDressingInterval;
 
     public void set(final String field, final String s) {
         if ("min_maturation".equals(field)) {
@@ -18,22 +18,20 @@ public class Plant {
         } else if ("max_maturation".equals(field)) {
             mMaxMaturation = Integer.parseInt(s);
         } else if ("min_temp".equals(field)) {
-            mMinTemperature = Integer.parseInt(s);
+            mMinTemperature = Double.parseDouble(s);
         } else if ("max_temp".equals(field)) {
-            mMaxTemperature = Integer.parseInt(s);
+            mMaxTemperature = Double.parseDouble(s);
         } else if ("favor_temp".equals(field)) {
-            mFavorTemperature = Integer.parseInt(s);
+            mFavorTemperature = Double.parseDouble(s);
         } else if ("humidity".equals(field)) {
-            mHumidity = Integer.parseInt(s);
+            mHumidity = Double.parseDouble(s);
         } else if ("watering_interval".equals(field)) {
             mWateringInterval = Integer.parseInt(s);
         } else if ("top_dressing_interval".equals(field)) {
             mTopDressingInterval = Integer.parseInt(s);
+        } else if ("name".equals(field)) {
+            mName = s;
         }
-    }
-
-    public void setName(final String name) {
-        mName = name;
     }
 
     public String getName() {
@@ -48,19 +46,19 @@ public class Plant {
         return mMaxMaturation;
     }
 
-    public int getMinTemperature() {
+    public double getMinTemperature() {
         return mMinTemperature;
     }
 
-    public int getMaxTemperature() {
+    public double getMaxTemperature() {
         return mMaxTemperature;
     }
 
-    public int getFavorTemperature() {
+    public double getFavorTemperature() {
         return mFavorTemperature;
     }
 
-    public int getHumidity() {
+    public double getHumidity() {
         return mHumidity;
     }
 

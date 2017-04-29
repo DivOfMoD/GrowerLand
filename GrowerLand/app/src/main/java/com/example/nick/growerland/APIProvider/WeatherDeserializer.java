@@ -12,13 +12,15 @@ import java.util.Date;
 class WeatherDeserializer extends ValidationChecker implements JsonDeserializer<Weather> {
 
     @Override
-    public Weather deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-        JsonObject jWeatherObject = jsonElement.getAsJsonObject();
-        JsonObject jMain = jWeatherObject.getAsJsonObject("main");
-        JsonObject jWeather = jWeatherObject.getAsJsonArray("weather").get(0).getAsJsonObject();
-        JsonObject jWind = jWeatherObject.getAsJsonObject("wind");
+    public Weather deserialize(final JsonElement jsonElement, final Type type,
+                               final JsonDeserializationContext jsonDeserializationContext)
+            throws JsonParseException {
+        final JsonObject jWeatherObject = jsonElement.getAsJsonObject();
+        final JsonObject jMain = jWeatherObject.getAsJsonObject("main");
+        final JsonObject jWeather = jWeatherObject.getAsJsonArray("weather").get(0).getAsJsonObject();
+        final JsonObject jWind = jWeatherObject.getAsJsonObject("wind");
 
-        Weather weather = new Weather();
+        final Weather weather = new Weather();
 
         weather.setDate(new Date(jWeatherObject.get("dt").getAsLong() *1000));
 

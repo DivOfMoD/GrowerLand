@@ -27,10 +27,10 @@ public class WeatherFormatter {
         weatherForecastResponse = provider.getFiveDayForecast(lat, lot);
         mWeatherList = weatherForecastResponse.getWeather();
 
-        DivideIntoDays();
+        DivideIntoTwentyFourHours();
     }
 
-    private void DivideIntoDays(){
+    private void DivideIntoTwentyFourHours(){
         Calendar previousDate = Calendar.getInstance();
         previousDate.setTime(mWeatherList.get(0).getDate());
         TwentyFourHours twentyFourHours = new TwentyFourHours();
@@ -47,6 +47,7 @@ public class WeatherFormatter {
                 twentyFourHours.getWeatherList().add(weather);
             }
         }
+        mTwentyFourHoursList.add(twentyFourHours);
     }
 
     private void DivideIntoDayNightTimes(){

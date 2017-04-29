@@ -12,6 +12,6 @@
         android:layout_margin="72dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/S06s8sDUU8o"/>
+        android:src="@drawable/logo"/>
 
 </FrameLayout>

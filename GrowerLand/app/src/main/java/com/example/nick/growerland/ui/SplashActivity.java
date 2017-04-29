@@ -11,7 +11,7 @@ import com.example.nick.growerland.utils.PreferenceManager;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final long DURATION = 500;
+    private static final long DURATION = 1500;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {

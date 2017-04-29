@@ -30,7 +30,7 @@ public class PlantParentDeserializer implements JsonDeserializer<PlantParent> {
         final ArrayList<PlantSort> sorts = new ArrayList<>();
         for (final JsonElement jsonElement :
                 json.getAsJsonObject().get("sorts").getAsJsonArray()) {
-            PlantSort sort = context.deserialize(jsonElement, PlantSort.class);
+            final PlantSort sort = context.deserialize(jsonElement, PlantSort.class);
             sort.setPlantParent(response);
             sorts.add(sort);
         }

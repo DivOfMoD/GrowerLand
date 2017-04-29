@@ -1,6 +1,6 @@
 package com.example.nick.growerland.weatherformatter.day;
 
-import com.example.nick.growerland.APIProvider.Weather;
+import com.example.nick.growerland.weatherapi.Weather;
 
 import java.util.ArrayList;
 

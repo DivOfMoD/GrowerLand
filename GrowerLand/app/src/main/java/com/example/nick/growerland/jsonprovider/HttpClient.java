@@ -1,4 +1,4 @@
-package com.example.nick.growerland.APIProvider;
+package com.example.nick.growerland.jsonprovider;
 
 import android.os.AsyncTask;
 

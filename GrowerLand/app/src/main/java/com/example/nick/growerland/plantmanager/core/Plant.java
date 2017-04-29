@@ -5,12 +5,12 @@ public class Plant {
     private String mName;
     private Integer mMinMaturation;
     private Integer mMaxMaturation;
-    private Double mMinTemperature;
-    private Double mMaxTemperature;
-    private Double mFavorTemperature;
-    private Double mHumidity;
-    private Integer mWateringInterval;
-    private Integer mTopDressingInterval;
+    private Float mMinTemperature;
+    private Float mMaxTemperature;
+    private Float mFavorTemperature;
+    private Float mHumidity;
+    private Float mWateringInterval;
+    private Float mTopDressingInterval;
 
     public void set(final String field, final String s) {
         if ("min_maturation".equals(field)) {
@@ -18,17 +18,17 @@ public class Plant {
         } else if ("max_maturation".equals(field)) {
             mMaxMaturation = Integer.parseInt(s);
         } else if ("min_temp".equals(field)) {
-            mMinTemperature = Double.parseDouble(s);
+            mMinTemperature = Float.parseFloat(s);
         } else if ("max_temp".equals(field)) {
-            mMaxTemperature = Double.parseDouble(s);
+            mMaxTemperature = Float.parseFloat(s);
         } else if ("favor_temp".equals(field)) {
-            mFavorTemperature = Double.parseDouble(s);
+            mFavorTemperature = Float.parseFloat(s);
         } else if ("humidity".equals(field)) {
-            mHumidity = Double.parseDouble(s);
+            mHumidity = Float.parseFloat(s);
         } else if ("watering_interval".equals(field)) {
-            mWateringInterval = Integer.parseInt(s);
+            mWateringInterval = Float.parseFloat(s);
         } else if ("top_dressing_interval".equals(field)) {
-            mTopDressingInterval = Integer.parseInt(s);
+            mTopDressingInterval = Float.parseFloat(s);
         } else if ("name".equals(field)) {
             mName = s;
         }
@@ -38,35 +38,35 @@ public class Plant {
         return mName;
     }
 
-    public int getMinMaturation() {
+    public Integer getMinMaturation() {
         return mMinMaturation;
     }
 
-    public int getMaxMaturation() {
+    public Integer getMaxMaturation() {
         return mMaxMaturation;
     }
 
-    public double getMinTemperature() {
+    public Float getMinTemperature() {
         return mMinTemperature;
     }
 
-    public double getMaxTemperature() {
+    public Float getMaxTemperature() {
         return mMaxTemperature;
     }
 
-    public double getFavorTemperature() {
+    public Float getFavorTemperature() {
         return mFavorTemperature;
     }
 
-    public double getHumidity() {
+    public Float getHumidity() {
         return mHumidity;
     }
 
-    public int getWateringInterval() {
+    public Float getWateringInterval() {
         return mWateringInterval;
     }
 
-    public int getTopDressingInterval() {
+    public Float getTopDressingInterval() {
         return mTopDressingInterval;
     }
 

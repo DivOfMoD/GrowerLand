@@ -1,6 +1,6 @@
 package com.example.nick.growerland.weatherformatter;
 
-import com.example.nick.growerland.APIProvider.Weather;
+import com.example.nick.growerland.weatherapi.Weather;
 import com.example.nick.growerland.weatherformatter.day.DayTime;
 import com.example.nick.growerland.weatherformatter.day.NightTime;
 import com.example.nick.growerland.weatherformatter.day.TwentyFourHours;

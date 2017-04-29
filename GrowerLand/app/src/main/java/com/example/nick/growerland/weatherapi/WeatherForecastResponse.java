@@ -1,7 +1,6 @@
-package com.example.nick.growerland.APIProvider;
+package com.example.nick.growerland.weatherapi;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class WeatherForecastResponse {
 

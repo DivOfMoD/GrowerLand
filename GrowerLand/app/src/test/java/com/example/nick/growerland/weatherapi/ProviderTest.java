@@ -1,6 +1,4 @@
-package com.example.nick.growerland.APIProvider;
-
-import com.example.nick.growerland.APIProvider.Provider;
+package com.example.nick.growerland.weatherapi;
 
 import org.junit.Before;
 import org.junit.Test;

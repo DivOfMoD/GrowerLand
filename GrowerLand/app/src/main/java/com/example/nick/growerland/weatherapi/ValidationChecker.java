@@ -1,4 +1,4 @@
-package com.example.nick.growerland.APIProvider;
+package com.example.nick.growerland.weatherapi;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

@@ -7,9 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.nick.growerland.R;
-import com.example.nick.growerland.plantmanager.JsonTest;
-import com.example.nick.growerland.plantmanager.PlantJsonProvider;
-import com.example.nick.growerland.plantmanager.core.PlantCollection;
 import com.example.nick.growerland.utils.PreferenceManager;
 
 public class SplashActivity extends AppCompatActivity {
@@ -21,7 +18,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        final PlantCollection collection = new PlantJsonProvider().getPlantCollection(JsonTest.DATA);
         final boolean passed = PreferenceManager.getInstance().getPassedRegistration(this);
 
         new Handler().postDelayed(() -> {

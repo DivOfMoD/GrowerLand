@@ -1,14 +1,12 @@
 package com.example.nick.growerland.weatherformatter;
 
-import com.example.nick.growerland.APIProvider.Provider;
-import com.example.nick.growerland.APIProvider.Weather;
-import com.example.nick.growerland.APIProvider.WeatherForecastResponse;
+import com.example.nick.growerland.weatherapi.Provider;
+import com.example.nick.growerland.weatherapi.Weather;
+import com.example.nick.growerland.weatherapi.WeatherForecastResponse;
 import com.example.nick.growerland.weatherformatter.day.TwentyFourHours;
-import com.example.nick.growerland.weatherformatter.day.DayTime;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class WeatherFormatter {
 

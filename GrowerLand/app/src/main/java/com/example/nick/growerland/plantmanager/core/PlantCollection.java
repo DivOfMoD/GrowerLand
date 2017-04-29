@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class PlantCollection {
 
-    ArrayList<PlantType> mPlantTypes;
+    private ArrayList<PlantType> mPlantTypes;
 
     public ArrayList<PlantType> getPlantTypes() {
         return mPlantTypes;
     }
 
-    public void setPlantTypes(ArrayList<PlantType> plantTypes) {
+    public void setPlantTypes(final ArrayList<PlantType> plantTypes) {
         mPlantTypes = plantTypes;
     }
 }

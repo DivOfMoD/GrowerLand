@@ -22,13 +22,11 @@ public class Provider {
         HttpClient httpClient = new HttpClient();
         httpClient.execute(request);
         String json = "";
-
         try {
             json = httpClient.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
-
         return json;
     }
 

@@ -17,7 +17,6 @@ class HttpClient extends AsyncTask<String, Void, String> {
         super.onPreExecute();
     }
 
-
     @Override
     protected String doInBackground(String... params) {
 
@@ -34,7 +33,6 @@ class HttpClient extends AsyncTask<String, Void, String> {
 
             in = new BufferedInputStream(urlConnection.getInputStream());
 
-
         } catch (Exception e) {
 
             System.out.println(e.getMessage());
@@ -50,7 +48,6 @@ class HttpClient extends AsyncTask<String, Void, String> {
         }
         return resultToDisplay;
     }
-
 
     @Override
     protected void onPostExecute(String result) {

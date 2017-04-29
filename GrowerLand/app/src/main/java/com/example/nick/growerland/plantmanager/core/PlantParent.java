@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class PlantParent extends Plant {
     
-    private ArrayList<Plant> mSorts;
+    private ArrayList<PlantSort> mSorts;
 
-    public ArrayList<Plant> getSorts() {
+    public ArrayList<PlantSort> getSorts() {
         return mSorts;
     }
 
-    public void setSorts(ArrayList<Plant> sorts) {
+    public void setSorts(ArrayList<PlantSort> sorts) {
         mSorts = sorts;
     }
 }

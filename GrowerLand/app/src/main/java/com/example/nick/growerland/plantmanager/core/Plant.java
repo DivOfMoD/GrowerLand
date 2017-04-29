@@ -12,39 +12,27 @@ public class Plant {
     private int mWateringInterval;
     private int mTopDressingInterval;
 
-    public void setMinMaturation(int minMaturation) {
-        mMinMaturation = minMaturation;
+    public void set(final String field, final String s) {
+        if ("min_maturation".equals(field)) {
+            mMinMaturation = Integer.parseInt(s);
+        } else if ("max_maturation".equals(field)) {
+            mMaxMaturation = Integer.parseInt(s);
+        } else if ("min_temp".equals(field)) {
+            mMinTemperature = Integer.parseInt(s);
+        } else if ("max_temp".equals(field)) {
+            mMaxTemperature = Integer.parseInt(s);
+        } else if ("favor_temp".equals(field)) {
+            mFavorTemperature = Integer.parseInt(s);
+        } else if ("humidity".equals(field)) {
+            mHumidity = Integer.parseInt(s);
+        } else if ("watering_interval".equals(field)) {
+            mWateringInterval = Integer.parseInt(s);
+        } else if ("top_dressing_interval".equals(field)) {
+            mTopDressingInterval = Integer.parseInt(s);
+        }
     }
 
-    public void setMaxMaturation(int maxMaturation) {
-        mMaxMaturation = maxMaturation;
-    }
-
-    public void setMinTemperature(int minTemperture) {
-        mMinTemperature = minTemperture;
-    }
-
-    public void setMaxTemperature(int maxTemperature) {
-        mMaxTemperature = maxTemperature;
-    }
-
-    public void setFavorTemperature(int favorTemperature) {
-        mFavorTemperature = favorTemperature;
-    }
-
-    public void setHumidity(int humidity) {
-        mHumidity = humidity;
-    }
-
-    public void setWateringInterval(int wateringInterval) {
-        mWateringInterval = wateringInterval;
-    }
-
-    public void setTopDressingInterval(int topDressingInterval) {
-        mTopDressingInterval = topDressingInterval;
-    }
-
-    public void setName(String name) {
+    public void setName(final String name) {
         mName = name;
     }
 

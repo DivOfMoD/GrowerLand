@@ -1,9 +1,7 @@
 package com.example.nick.growerland.plantmanager.deserializers;
 
-import com.example.nick.growerland.plantmanager.core.Plant;
 import com.example.nick.growerland.plantmanager.core.PlantParent;
-import com.example.nick.growerland.plantmanager.core.PlantType;
-import com.google.gson.JsonArray;
+import com.example.nick.growerland.plantmanager.core.PlantSort;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -12,6 +10,8 @@ import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 public class PlantParentDeserializer implements JsonDeserializer<PlantParent> {
 
@@ -24,15 +24,24 @@ public class PlantParentDeserializer implements JsonDeserializer<PlantParent> {
         final PlantParent response = new PlantParent();
         final JsonObject jsonObject = json.getAsJsonObject();
         final String key = jsonObject.entrySet().iterator().next().getKey();
-        final JsonArray jPlantTypes = jsonObject.getAsJsonObject(key).getAsJsonArray();
+        response.setName(key);
+        final JsonObject jParentDescription = jsonObject.getAsJsonObject(key);
 
-        final ArrayList<Plant> typeArray = new ArrayList<>();
+        final ArrayList<PlantSort> typeArray = new ArrayList<>();
+        final Iterator<Map.Entry<String, JsonElement>> iterator = jParentDescription
+                .entrySet().iterator();
+        final String array = iterator.next().getKey();
+        while (iterator.hasNext()) {
+            final Map.Entry<String, JsonElement> entry = iterator.next();
+            response.set(entry.getKey(), entry.getValue().getAsString());
+        }
         for (final JsonElement listItem :
-                jPlantTypes) {
-            typeArray.add(context.deserialize(listItem, Plant.class));
+                jParentDescription.getAsJsonArray(array)) {
+            final PlantSort sort = context.deserialize(listItem, PlantSort.class);
+            sort.setPlantParent(response);
+            typeArray.add(sort);
         }
 
-        response.setName(key);
         response.setSorts(typeArray);
         return response;
     }

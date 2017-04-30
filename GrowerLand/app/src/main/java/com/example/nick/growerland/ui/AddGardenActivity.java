@@ -15,6 +15,8 @@ import com.example.nick.growerland.async.OnResultCallback;
 import com.example.nick.growerland.async.OwnAsyncTask;
 import com.example.nick.growerland.async.task.LoadVeg;
 import com.example.nick.growerland.constant.ListConstants;
+import com.example.nick.growerland.lovelydialog.AlertCustomDialog;
+import com.google.android.gms.maps.MapView;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,36 @@ public class AddGardenActivity extends AppCompatActivity {
 
     public void onPushClicked(final View view) {
         NotifyUser.notifyUser(this, MenuActivity.class, "GrowerLand", "Poor your vegetables right now on Baranovichi garden...", R.drawable.leafgreen);
+    }
+
+    public void onLocationClicked(View view) {
+        final AlertCustomDialog dialog = new AlertCustomDialog(this);
+        dialog.setView(R.layout.custom_map)
+                .setTopColorRes(R.color.brand_color)
+                .setCancelable(false)
+                .setIcon(R.drawable.leaf)
+                .show();
+
+        final View viewDialog = dialog.getAddedView();
+        MapView mapView = (MapView) viewDialog.findViewById(R.id.map);
+        final TextView ok = (TextView) viewDialog.findViewById(R.id.ld_btn_confirm);
+        final TextView cancel = (TextView) viewDialog.findViewById(R.id.ld_btn_negative);
+
+        ok.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                dialog.dismiss();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     @Override

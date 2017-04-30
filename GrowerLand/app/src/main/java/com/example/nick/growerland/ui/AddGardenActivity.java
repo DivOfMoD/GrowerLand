@@ -38,55 +38,55 @@ public class AddGardenActivity extends AppCompatActivity {
     }
 
     public void onLocationClicked(final View view) {
-        final AlertCustomDialog dialog = new AlertCustomDialog(this);
-        dialog.setView(R.layout.custom_map)
-                .setTopColorRes(R.color.brand_color)
-                .setCancelable(false)
-                .setIcon(R.drawable.leaf)
-                .show();
-
-        final View viewDialog = dialog.getAddedView();
-        final MapView mapView = (MapView) viewDialog.findViewById(R.id.map);
-        final TextView ok = (TextView) viewDialog.findViewById(R.id.ld_btn_confirm);
-        final TextView cancel = (TextView) viewDialog.findViewById(R.id.ld_btn_negative);
-
-        if (googleMap == null) {
-            mapView.onResume();
-            mapView.getMapAsync(new OnMapReadyCallback() {
-
-                @Override
-                public void onMapReady(final GoogleMap pGoogleMap) {
-                    googleMap = pGoogleMap;
-                    googleMap.getUiSettings().setAllGesturesEnabled(true);
-                    if (ActivityCompat.checkSelfPermission(AddGardenActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                            && ActivityCompat.checkSelfPermission(AddGardenActivity.this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        return;
-                    }
-                    googleMap.setMyLocationEnabled(true);
-                    final LatLng currentLatLng = new LatLng(53.66, 23.83);
-
-                    if (currentLatLng != null) {
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 14));
-                    }
-                }
-            });
-        }
-
-        ok.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(final View v) {
-                dialog.dismiss();
-            }
-        });
-
-        cancel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(final View v) {
-                dialog.dismiss();
-            }
-        });
+//        final AlertCustomDialog dialog = new AlertCustomDialog(this);
+//        dialog.setView(R.layout.custom_map)
+//                .setTopColorRes(R.color.brand_color)
+//                .setCancelable(false)
+//                .setIcon(R.drawable.leaf)
+//                .show();
+//
+//        final View viewDialog = dialog.getAddedView();
+//        final MapView mapView = (MapView) viewDialog.findViewById(R.id.map);
+//        final TextView ok = (TextView) viewDialog.findViewById(R.id.ld_btn_confirm);
+//        final TextView cancel = (TextView) viewDialog.findViewById(R.id.ld_btn_negative);
+//
+//        if (googleMap == null) {
+//            mapView.onResume();
+//            mapView.getMapAsync(new OnMapReadyCallback() {
+//
+//                @Override
+//                public void onMapReady(final GoogleMap pGoogleMap) {
+//                    googleMap = pGoogleMap;
+//                    googleMap.getUiSettings().setAllGesturesEnabled(true);
+//                    if (ActivityCompat.checkSelfPermission(AddGardenActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+//                            && ActivityCompat.checkSelfPermission(AddGardenActivity.this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                        return;
+//                    }
+//                    googleMap.setMyLocationEnabled(true);
+//                    final LatLng currentLatLng = new LatLng(53.66, 23.83);
+//
+//                    if (currentLatLng != null) {
+//                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 14));
+//                    }
+//                }
+//            });
+//        }
+//
+//        ok.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(final View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        cancel.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(final View v) {
+//                dialog.dismiss();
+//            }
+//        });
     }
 
     @Override
@@ -94,8 +94,8 @@ public class AddGardenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_garden);
 
-        mapView = (MapView) findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);
+//        mapView = (MapView) findViewById(R.id.map);
+//        mapView.onCreate(savedInstanceState);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.item_recycler_veg);
         final RecyclerView.Adapter[] adapter = new RecyclerView.Adapter[1];

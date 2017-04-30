@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 //        WeatherForecastResponse fiveDayForecast = new Provider().getFiveDayForecast(lat, lot);
 //        Log.d("TAG", fiveDayForecast.getWeather().get(0).getDate().toString());
 
-        WeatherFormatter weatherFormatter = new WeatherFormatter(lat, lot);
-        ArrayList<TwentyFourHours> twentyFourHourses = weatherFormatter.getTwentyFourHoursList();
+//        WeatherFormatter weatherFormatter = new WeatherFormatter(lat, lot);
+//        ArrayList<TwentyFourHours> twentyFourHourses = weatherFormatter.getTwentyFourHoursList();
     }
 
 }

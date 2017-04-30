@@ -1,8 +1,9 @@
 package com.example.nick.growerland.weatherformatter;
 
-import com.example.nick.growerland.weatherapi.Provider;
+
 import com.example.nick.growerland.weatherapi.Weather;
 import com.example.nick.growerland.weatherapi.WeatherForecastResponse;
+import com.example.nick.growerland.weatherapi.WeatherProvider;
 import com.example.nick.growerland.weatherformatter.day.TwentyFourHours;
 
 import java.util.ArrayList;
@@ -10,18 +11,18 @@ import java.util.Calendar;
 
 public class WeatherFormatter {
 
-    private Provider provider;
+    private WeatherProvider provider;
     private WeatherForecastResponse weatherForecastResponse;
     private ArrayList<Weather> mWeatherList;
     private ArrayList<TwentyFourHours> mTwentyFourHoursList;
 
     public WeatherFormatter(){
-        provider = new Provider();
+        provider = new WeatherProvider();
         mTwentyFourHoursList = new ArrayList<>();
     }
 
     public WeatherFormatter(double lat, double lot){
-        provider = new Provider();
+        provider = new WeatherProvider();
         mTwentyFourHoursList = new ArrayList<>();
         form(lat, lot);
     }

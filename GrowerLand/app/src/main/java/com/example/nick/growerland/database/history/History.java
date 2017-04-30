@@ -1,6 +1,6 @@
 package com.example.nick.growerland.database.history;
 
-class History {
+public class History {
 
     private int mId;
     private int mTime;

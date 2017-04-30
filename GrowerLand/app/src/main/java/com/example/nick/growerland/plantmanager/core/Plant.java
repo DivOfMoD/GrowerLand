@@ -70,4 +70,39 @@ public class Plant {
         return mTopDressingInterval;
     }
 
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public void setMinMaturation(Integer minMaturation) {
+        mMinMaturation = minMaturation;
+    }
+
+    public void setMaxMaturation(Integer maxMaturation) {
+        mMaxMaturation = maxMaturation;
+    }
+
+    public void setMinTemperature(Float minTemperature) {
+        mMinTemperature = minTemperature;
+    }
+
+    public void setMaxTemperature(Float maxTemperature) {
+        mMaxTemperature = maxTemperature;
+    }
+
+    public void setFavorTemperature(Float favorTemperature) {
+        mFavorTemperature = favorTemperature;
+    }
+
+    public void setHumidity(Float humidity) {
+        mHumidity = humidity;
+    }
+
+    public void setWateringInterval(Float wateringInterval) {
+        mWateringInterval = wateringInterval;
+    }
+
+    public void setTopDressingInterval(Float topDressingInterval) {
+        mTopDressingInterval = topDressingInterval;
+    }
 }

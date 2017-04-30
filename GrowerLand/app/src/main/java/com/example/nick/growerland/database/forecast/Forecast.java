@@ -1,6 +1,6 @@
 package com.example.nick.growerland.database.forecast;
 
-class Forecast {
+public class Forecast {
 
     private int mId;
     private float mTemperature;

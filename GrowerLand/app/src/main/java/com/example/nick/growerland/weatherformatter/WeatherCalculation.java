@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by kiril on 29.04.2017.
  */
 
-public class WeatherCalculation {
+class WeatherCalculation {
 
     public WeatherCalculation(ArrayList<TwentyFourHours> twentyFourHoursList){
         calculate(twentyFourHoursList);

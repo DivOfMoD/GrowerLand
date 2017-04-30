@@ -20,14 +20,13 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetView
 
     @Override
     public PlanetAdapter.PlanetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.planet_row,parent,false);
-        PlanetViewHolder viewHolder=new PlanetViewHolder(v);
-        return viewHolder;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.planet_row, parent, false);
+        return new PlanetViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(PlanetAdapter.PlanetViewHolder holder, int position) {
-        holder.image.setImageResource(R.drawable.plus);
+        holder.image.setImageResource(R.drawable.leafgreen);
         holder.text.setText(planetList.get(position).toString());
     }
 
@@ -36,15 +35,15 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetView
         return planetList.size();
     }
 
-    public static class PlanetViewHolder extends RecyclerView.ViewHolder{
+    public static class PlanetViewHolder extends RecyclerView.ViewHolder {
 
         protected ImageView image;
         protected TextView text;
 
         public PlanetViewHolder(View itemView) {
             super(itemView);
-            image= (ImageView) itemView.findViewById(R.id.image_id);
-            text= (TextView) itemView.findViewById(R.id.text_id);
+            image = (ImageView) itemView.findViewById(R.id.image_id);
+            text = (TextView) itemView.findViewById(R.id.text_id);
         }
     }
 }

@@ -10,6 +10,7 @@ public class TwentyFourHours {
     private NightTime mNightTime;
     private double mAvarageHumidity;
     private double mAvarageTemperature;
+    private double mRainVolume;
 
     public TwentyFourHours(){
         mDayTime = new DayTime();
@@ -47,4 +48,8 @@ public class TwentyFourHours {
     public void setAvarageTemperature(double mAvarageTemperature) {
         this.mAvarageTemperature = mAvarageTemperature;
     }
+
+    public double getRainVolume() { return mRainVolume; }
+
+    public void setRainVolume(double mRainVolume) { this.mRainVolume = mRainVolume; }
 }

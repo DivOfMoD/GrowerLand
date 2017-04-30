@@ -12,6 +12,7 @@ public class NightTime{
 
     private double mAvarageTemperature;
     private double mAvarageHumidity;
+    private double mRainVolume;
     private ArrayList<Weather> mWeatherList;
 
     public NightTime(){
@@ -32,6 +33,14 @@ public class NightTime{
 
     public void setAvarageHumidity(double mAvarageHumidity) {
         this.mAvarageHumidity = mAvarageHumidity;
+    }
+
+    public double getRainVolume() {
+        return mRainVolume;
+    }
+
+    public void setRainVolume(double mRainVolume) {
+        this.mRainVolume = mRainVolume;
     }
 
     public ArrayList<Weather> getWeatherList() {

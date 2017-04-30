@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">#ff0004</item>
+        <item name="colorAccent">@color/brand_color</item>
     </style>
 
     <style name="DialogButton">
@@ -19,4 +19,5 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/brand_color</item>
     </style>
+
 </resources>

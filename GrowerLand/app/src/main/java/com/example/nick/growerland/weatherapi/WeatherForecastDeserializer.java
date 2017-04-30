@@ -1,4 +1,4 @@
-package com.example.nick.growerland.APIProvider;
+package com.example.nick.growerland.weatherapi;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -9,8 +9,6 @@ import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Date;
-
 
 class WeatherForecastDeserializer extends ValidationChecker implements JsonDeserializer<WeatherForecastResponse> {
 
@@ -21,7 +19,6 @@ class WeatherForecastDeserializer extends ValidationChecker implements JsonDeser
 
         JsonObject rootObject = jsonElement.getAsJsonObject();
         JsonArray jWeatherList = rootObject.getAsJsonArray("list");
-
 
         ArrayList<Weather> weatherArray = new ArrayList<>();
         for (JsonElement listItem :

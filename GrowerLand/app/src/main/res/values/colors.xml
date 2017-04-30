@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="ld_textInputError">#F44336</color>
+    <color name="colorPrimary">@color/brand_color</color>
+    <color name="colorPrimaryDark">@color/brand_color</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="brand_color">#37803a</color>
+    <color name="text_color">#fff</color>
 </resources>

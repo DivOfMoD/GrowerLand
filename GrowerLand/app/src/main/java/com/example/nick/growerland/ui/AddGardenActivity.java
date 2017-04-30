@@ -1,6 +1,8 @@
 package com.example.nick.growerland.ui;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +18,11 @@ import com.example.nick.growerland.async.OwnAsyncTask;
 import com.example.nick.growerland.async.task.LoadVeg;
 import com.example.nick.growerland.constant.ListConstants;
 import com.example.nick.growerland.lovelydialog.AlertCustomDialog;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
@@ -24,12 +30,14 @@ public class AddGardenActivity extends AppCompatActivity {
 
     TextView title;
     RecyclerView mRecyclerView;
+    private MapView mapView;
+    private GoogleMap googleMap;
 
     public void onPushClicked(final View view) {
         NotifyUser.notifyUser(this, MenuActivity.class, "GrowerLand", "Poor your vegetables right now on Baranovichi garden...", R.drawable.leafgreen);
     }
 
-    public void onLocationClicked(View view) {
+    public void onLocationClicked(final View view) {
         final AlertCustomDialog dialog = new AlertCustomDialog(this);
         dialog.setView(R.layout.custom_map)
                 .setTopColorRes(R.color.brand_color)
@@ -38,9 +46,31 @@ public class AddGardenActivity extends AppCompatActivity {
                 .show();
 
         final View viewDialog = dialog.getAddedView();
-        MapView mapView = (MapView) viewDialog.findViewById(R.id.map);
+        final MapView mapView = (MapView) viewDialog.findViewById(R.id.map);
         final TextView ok = (TextView) viewDialog.findViewById(R.id.ld_btn_confirm);
         final TextView cancel = (TextView) viewDialog.findViewById(R.id.ld_btn_negative);
+
+        if (googleMap == null) {
+            mapView.onResume();
+            mapView.getMapAsync(new OnMapReadyCallback() {
+
+                @Override
+                public void onMapReady(final GoogleMap pGoogleMap) {
+                    googleMap = pGoogleMap;
+                    googleMap.getUiSettings().setAllGesturesEnabled(true);
+                    if (ActivityCompat.checkSelfPermission(AddGardenActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                            && ActivityCompat.checkSelfPermission(AddGardenActivity.this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    googleMap.setMyLocationEnabled(true);
+                    final LatLng currentLatLng = new LatLng(53.66, 23.83);
+
+                    if (currentLatLng != null) {
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 14));
+                    }
+                }
+            });
+        }
 
         ok.setOnClickListener(new View.OnClickListener() {
 
@@ -63,6 +93,10 @@ public class AddGardenActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_garden);
+
+        mapView = (MapView) findViewById(R.id.map);
+        mapView.onCreate(savedInstanceState);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.item_recycler_veg);
         final RecyclerView.Adapter[] adapter = new RecyclerView.Adapter[1];
         final RecyclerView.LayoutManager layoutManager;

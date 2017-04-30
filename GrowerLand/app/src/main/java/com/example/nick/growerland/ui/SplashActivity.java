@@ -11,7 +11,7 @@ import com.example.nick.growerland.utils.PreferenceManager;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final long DURATION = 500;
+    private static final long DURATION = 1500;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -23,9 +23,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             final Intent intent;
             if (passed) {
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, MenuActivity.class);
             } else {
-                intent = new Intent(this, RegistrationActivity.class);
+                intent = new Intent(this, MenuActivity.class); // RegistrationActivity.class
             }
             startActivity(intent);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

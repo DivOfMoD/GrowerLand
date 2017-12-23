@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">GrowerLand</string>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <string name="empty_page_text">You do not have any kitchen garden\nClick \'+\' to add your first garden</string>
 =======
+=======
+>>>>>>> 108f6d610ba0278c838cecaac55669ac1f9a27a3
 
     <string name="dont_show_again">Don\'t show again</string>
     <string name="ex_msg_dialog_choice_confirm">Confirm button is only for multi choice lists. You must call setMultiChoiceItems first</string>
     <string name="ex_msg_dialog_view_not_set">You must call method setView before calling configureView.</string>
 
+<<<<<<< HEAD
 >>>>>>> add lovely dialog
+=======
+>>>>>>> 108f6d610ba0278c838cecaac55669ac1f9a27a3
 </resources>
